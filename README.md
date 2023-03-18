@@ -1,0 +1,3 @@
+# Netflix of mine
+
+Netflix's clone mockup created for a front-end web dev technical test 
