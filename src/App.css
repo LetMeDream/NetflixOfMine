@@ -10,7 +10,10 @@
 }
 .splide__arrow.splide__arrow--prev svg {
   fill: white !important;
+  stroke:white !important;
 }
+
 .splide__arrow.splide__arrow--prev{
   color: white !important;
+  stroke:white !important;
 }

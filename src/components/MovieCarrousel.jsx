@@ -30,13 +30,18 @@ const Trending = ({ movies, title, moviesPerPage }) => {
             return (
               <SplideSlide key={movie.id}>
                 <div
-                  className='flex flex-col items-center text-white text-center cursor-pointer'
+                  className='flex flex-col items-center text-white text-center cursor-pointer group'
                 >
-                  <div className='overflow-hidden'>
+                  <div className='overflow-hidden relative'>
                     <img
                       src={`${resourcesUrlBase}${movie.backdrop_path}`} alt={`Image for ${movie.title ? movie.title : movie.name}`}
-                      className='bg transition-all duration-500 ease-in-out hover:scale-110'
+                      className='bg transition-all duration-500 ease-in-out hover:scale-110 z-10 relative'
                     />
+                    <div className='transition-all duration-300 pointer-events-none absolute z-20 opacity-0 group-hover:opacity-70 bg-slate-800 w-full h-full top-0 left-0 flex flex-col justify-center'>
+                      <p className='text-sm leading-3 h-2/6 overflow-hidden text-clip pb-4'>
+                        {movie.overview}...
+                      </p>
+                    </div>
                   </div>
                   <p
                     title={movie.overview}
@@ -49,10 +54,10 @@ const Trending = ({ movies, title, moviesPerPage }) => {
           })}
         </SplideTrack>
         <div className='splide__arrows'>
-          <button type='button' atia-controls='splide01-track' className='splide__arrow splide__arrow--prev -left-10 fill-white'>
-            <GrFormNext className='text-4xl' />
+          <button type='button' aria-controls='splide01-track' className='splide__arrow splide__arrow--prev -left-10 fill-white'>
+            <GrFormNext className='text-4xl fill-white' />
           </button>
-          <button type='button' atia-controls='splide01-track' className='splide__arrow splide__arrow--next -right-10'>
+          <button type='button' aria-controls='splide01-track' className='splide__arrow splide__arrow--next -right-10'>
             <GrFormNext className='text-4xl' />
           </button>
         </div>
