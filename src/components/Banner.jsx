@@ -14,13 +14,13 @@ const Banner = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([])
   const [comedyMovies, setComedyMovies] = useState([])
   const size = useWindowSize()
+  console.log(import.meta.env.VITE_API_KEY)
 
   useEffect(() => {
     fetchMainMovie()
     fetchTrending()
     fetchTopRated()
     fetchComedy()
-    console.log(size.width)
   }, [size])
   const moviesPerPage = () => {
     if (size.width < 600) {
@@ -33,7 +33,7 @@ const Banner = () => {
 
   async function fetchTrending () {
     try {
-      const response = await fetch(`${moviesUrlBase}/trending/all/week?api_key=d2c77efb4e336d0550f3c1f2c1cde379&language=en-US`)
+      const response = await fetch(`${moviesUrlBase}/trending/all/week?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
       const data = await response.json()
       /* console.log(data.results) */
       setTrendingMovies(data.results)
@@ -44,7 +44,7 @@ const Banner = () => {
 
   async function fetchMainMovie () {
     try {
-      const response = await fetch(`${moviesUrlBase}/movie/550?api_key=d2c77efb4e336d0550f3c1f2c1cde379`)
+      const response = await fetch(`${moviesUrlBase}/movie/550?api_key=${import.meta.env.VITE_API_KEY}`)
       const data = await response.json()
       /* console.log(data) */
       setMainMovie(data)
@@ -55,7 +55,7 @@ const Banner = () => {
 
   async function fetchTopRated () {
     try {
-      const response = await fetch(`${moviesUrlBase}/movie/top_rated?api_key=d2c77efb4e336d0550f3c1f2c1cde379&language=en-US`)
+      const response = await fetch(`${moviesUrlBase}/movie/top_rated?api_key=${import.meta.env.VITE_API_KEY}&language=en-US`)
       const data = await response.json()
       setTopRatedMovies(data.results)
     } catch (error) {
@@ -65,7 +65,7 @@ const Banner = () => {
 
   async function fetchComedy () {
     try {
-      const response = await fetch(`${moviesUrlBase}/discover/movie?api_key=d2c77efb4e336d0550f3c1f2c1cde379&with_genres=35`)
+      const response = await fetch(`${moviesUrlBase}/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=35`)
       const data = await response.json()
       setComedyMovies(data.results)
     } catch (error) {
