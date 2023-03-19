@@ -14,7 +14,6 @@ const Banner = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([])
   const [comedyMovies, setComedyMovies] = useState([])
   const size = useWindowSize()
-  console.log(import.meta.env.VITE_API_KEY)
 
   useEffect(() => {
     fetchMainMovie()
