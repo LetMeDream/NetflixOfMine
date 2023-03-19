@@ -38,8 +38,8 @@ const Trending = ({ movies, title, moviesPerPage }) => {
                       className='bg transition-all duration-500 ease-in-out hover:scale-110 z-10 relative'
                     />
                     <div className='transition-all duration-300 pointer-events-none absolute z-20 opacity-0 group-hover:opacity-70 bg-slate-800 w-full h-full top-0 left-0 flex flex-col justify-center'>
-                      <p className='text-sm leading-3 h-2/6 overflow-hidden text-clip pb-4'>
-                        {movie.overview}...
+                      <p className='text-sm leading-3 overflow-hidden text-clip'>
+                        {movie.overview.split(' ').slice(0, 15).join(' ')}...
                       </p>
                     </div>
                   </div>
