@@ -113,7 +113,7 @@ const Banner = () => {
       />
       <MovieCarrousel
         movies={trendingMovies}
-        title='Trending movies in the US'
+        title='Trending in the US'
         moviesPerPage={moviesPerPage()}
       />
       <MovieCarrousel
